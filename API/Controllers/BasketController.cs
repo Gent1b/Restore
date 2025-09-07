@@ -56,10 +56,7 @@ namespace API.Controllers
 
         private async Task<Basket?> RetrieveBasket()
         {
-            return await context.Baskets
-            .Include(x => x.Items)
-            .ThenInclude(x => x.Product)
-            .FirstOrDefaultAsync(x => x.BasketId == Request.Cookies["basketId"]);
+            return await context.Baskets.GetBasketWithItems(Request.Cookies["basketId"]);
 
         }
 

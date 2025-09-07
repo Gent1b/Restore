@@ -12,31 +12,31 @@ import CheckoutPage from "../../features/checkout/CheckoutPage";
 import LoginForm from "../../features/accout/LoginForm";
 import RegisterForm from "../../features/accout/RegisterForm";
 import RequireAuth from "./RequireAuth";
+import CheckoutSuccess from "../../features/checkout/CheckoutSuccess";
 
-export const router =createBrowserRouter([
-{
-    path:  '/',
-    element: <App/>,
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
     children: [
-        {element: <RequireAuth/>,children:[
-        {path: '/checkout',element: <CheckoutPage/>}
-    ]},
-        {path: '',element: <HomePage/>},
-        {path: '/catalog',element: <Catalog/>},
-        {path: '/catalog/:id',element: <ProductDetails/>},
-        {path: '/about',element: <AboutPage/>},
-        {path: '/contact',element: <ContactPage/>},
-        {path: '/server-error',element:<ServerError/>},
-        {path: '/not-found',element:<NotFound/>},
-        {path: '*',element:<Navigate replace to='/not-found'/>},
-        {path: '/basket',element: <BasketPage/>},
-        {path: '/login',element: <LoginForm/>},
-        {path: '/register',element: <RegisterForm/>},
-
-
-
-
-
-        
-    ]}
-])
+      {
+        element: <RequireAuth />,
+        children: [
+          { path: "/checkout", element: <CheckoutPage /> },
+          { path: "/checkout/success", element: <CheckoutSuccess /> },
+        ],
+      },
+      { path: "", element: <HomePage /> },
+      { path: "/catalog", element: <Catalog /> },
+      { path: "/catalog/:id", element: <ProductDetails /> },
+      { path: "/about", element: <AboutPage /> },
+      { path: "/contact", element: <ContactPage /> },
+      { path: "/server-error", element: <ServerError /> },
+      { path: "/not-found", element: <NotFound /> },
+      { path: "*", element: <Navigate replace to="/not-found" /> },
+      { path: "/basket", element: <BasketPage /> },
+      { path: "/login", element: <LoginForm /> },
+      { path: "/register", element: <RegisterForm /> },
+    ],
+  },
+]);
